@@ -11,7 +11,7 @@
        - Card Container
        - Restaurant Card
            - Image
-           - Name of Restaurant, Cuisine, Star Rating, Delivery Time
+           - Name of Restaurant, Cuisine, Star Rating, Delivery Time,discount
    - Footer
        - Copyright
        - Address
