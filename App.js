@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import logo from "url:./SwaadpointLogo.png";
 
-const topRestroChain = [
+const topRestroChainList = [
   {
     info: {
       id: "71010",
@@ -1595,46 +1595,70 @@ const Header = () => {
   );
 };
 
-const TopRestroChain = () => {
+const TopRestroChain = (props) => {
+  console.log(props.restroChainItem.info);
+
+  const {
+    name,
+    cuisines,
+    costForTwo,
+    avgRating,
+    sla,
+    aggregatedDiscountInfoV3,
+    cloudinaryImageId,
+  } = props?.restroChainItem?.info;
+  const url =
+    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
   return (
     <div className="top-restaurant-card restaurant-card">
       <div className="card-image">
-        <img
-          src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ="
-          alt="The Spice Hub"
-        />
-        <span className="discount"> 20% OFF </span>
+        <img src={url + cloudinaryImageId} alt="The Spice Hub" />
+        {aggregatedDiscountInfoV3?.subHeader && <span className="discount"> {aggregatedDiscountInfoV3?.subHeader} </span>}
       </div>
       <div className="card-content">
-        <h3 className="restaurant-name">Maratha Darbar</h3>
-        <p className="cuisine">chinease, indian</p>
+        <h3 className="restaurant-name">{name}</h3>
+        <p className="cuisine">{cuisines.join(" ")}</p>
         <div className="card-footer">
-          <span className="rating">⭐ 4.5</span>
-          <span className="delivery-time">20 mins</span>
-          <span className="cost">350 For 2 </span>
+          <span className="rating">⭐ {avgRating}</span>
+          <span className="delivery-time">{sla.slaString}</span>
+          <span className="cost">{costForTwo} </span>
         </div>
       </div>
     </div>
   );
 };
 
-const RestaurentCard = () => {
+const RestaurentCard = (props) => {
+console.log(props.restaurentCardItem.info);
+
+  const {
+    name,
+    cuisines,
+    costForTwo,
+    avgRating,
+    sla,
+    slaString,
+    cloudinaryImageId,
+    aggregatedDiscountInfoV3,
+  } = props?.restaurentCardItem?.info;
+
+    const url =
+    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
   return (
     <div className="restaurant-card">
       <div className="card-image">
-        <img
-          src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ="
-          alt="The Spice Hub"
-        />
-        <span className="discount"> 20% OFF </span>
+          <img src={url + cloudinaryImageId} alt="The Spice Hub" />
+       {aggregatedDiscountInfoV3?.subHeader && <span className="discount"> {aggregatedDiscountInfoV3?.subHeader} </span>} 
       </div>
       <div className="card-content">
-        <h3 className="restaurant-name">Maratha Darbar</h3>
-        <p className="cuisine">chinease, indian</p>
+        <h3 className="restaurant-name">{name}</h3>
+        <p className="cuisine">{cuisines.join(' ')}</p>
         <div className="card-footer">
-          <span className="rating">⭐ 4.5</span>
-          <span className="delivery-time">20 mins</span>
-          <span className="cost">350 For 2 </span>
+          <span className="rating">⭐ {avgRating}</span>
+          <span className="delivery-time">{sla?.slaString}</span>
+          <span className="cost">{costForTwo}</span>
         </div>
       </div>
     </div>
@@ -1657,26 +1681,27 @@ const Body = () => {
 
         <div className="top-chain-scroll-container">
           <div className="top-chain-restaurants-container">
-            <TopRestroChain />
-            <TopRestroChain />
-            <TopRestroChain />
-            <TopRestroChain />
-            <TopRestroChain />
+            {topRestroChainList.map((restroChainItem, id) => {
+              return (
+                <TopRestroChain restroChainItem={restroChainItem} key={id} />
+              );
+            })}
           </div>
         </div>
       </section>
 
       <div className="divider"></div>
+       
+      <section className="top-chain-section">
+         <h2 className="section-title">Restaurants with online food delivery in Nashik</h2>
+      </section>
 
       <div className="restaurants-container">
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
+        {topRestroChainList.map((restaurentCardItem, id) => {
+          return (
+            <RestaurentCard restaurentCardItem={restaurentCardItem} key={id} />
+          );
+        })}
       </div>
     </div>
   );

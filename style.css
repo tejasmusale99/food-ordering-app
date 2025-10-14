@@ -89,7 +89,7 @@
 .top-chain-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding:30px 0px 40px 0px;
+  padding:20px 0px 20px 0px;
   box-sizing: border-box;
 }
 
@@ -137,7 +137,7 @@
 }
 
 .restaurant-card {
-  min-width: 280px;
+  width: 280px;
   flex-shrink: 0;
   background-color: white;
   border-radius: 10px;
@@ -149,7 +149,7 @@
 }
 
 .top-restaurant-card {
-  min-width: 280px;
+  width: 280px;
   flex-shrink: 0;
   cursor: pointer;
   border-radius: 12px;
