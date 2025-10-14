@@ -1,16 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import logo from 'url:./SwaadpointLogo.png'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import logo from "url:./SwaadpointLogo.png";
 
 const Header = () => {
   return (
     <header className="header">
       <div className="logo-container">
-        <img
-          src={logo}
-          alt="Logo"
-          className="logo"
-        />
+        <img src={logo} alt="Logo" className="logo" />
       </div>
       <nav className="nav">
         <a href="#">Home</a>
@@ -24,13 +20,31 @@ const Header = () => {
   );
 };
 
-const App = () => {
-    return(
-        <div className="appLayout">
-            <Header />
-        </div>
-    )
-}
+const Body = () => {
+  return (
+    <div className="body-container">
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search for restaurants or cuisines..."
+        />
+        <button>Search</button>
+      </div>
+      <div className="restaurants-container">
+        {/* {Restaurent card} */}
+      </div>
+    </div>
+  );
+};
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<App />)
+const App = () => {
+  return (
+    <div className="appLayout">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
