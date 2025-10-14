@@ -42,6 +42,16 @@
   min-height: 100vh;
 }
 
+/******* Divider ******/
+
+.divider {
+  width: 85%;            
+  height: 3px;            
+  background-color: #e0e0e0;
+  margin: 30px auto;        
+  border-radius: 2px;
+}
+
 /* ****** SearchBar ******* */
 
 .search-bar {
@@ -74,6 +84,50 @@
   background-color: #e65a00;
 }
 
+/*** Top chain Restaurant ***/
+
+.top-chain-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding:30px 0px 40px 0px;
+  box-sizing: border-box;
+}
+
+.top-chain-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom:20px ;
+}
+
+.top-chain-scroll-container::-webkit-scrollbar {
+  height: 6px; 
+}
+
+.top-chain-scroll-container::-webkit-scrollbar {
+    background: #f2f2f5; 
+  border-radius: 10px;
+}
+
+.top-chain-scroll-container::-webkit-scrollbar-thumb {
+  background: #ff6600; 
+  border-radius: 10px;
+}
+
+.top-chain-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #ff5200;
+}
+
+.top-chain-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #ff6600 #f2f2f5;
+}
+
+.top-chain-restaurants-container {
+  display: flex;
+  gap: 20px;
+}
+
 /* Restaurants Container */
 .restaurants-container {
   display: flex;
@@ -83,7 +137,8 @@
 }
 
 .restaurant-card {
-  width: 280px;
+  min-width: 280px;
+  flex-shrink: 0;
   background-color: white;
   border-radius: 10px;
   cursor: pointer;
@@ -93,6 +148,16 @@
   overflow: hidden;
 }
 
+.top-restaurant-card {
+  min-width: 280px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  font-family: "Arial", sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 .restaurant-card:hover {
   transform: translateY(-5px);
 }
@@ -155,6 +220,8 @@
   font-weight: bold;
 }
 
-.delivery-time, .cost {
+.delivery-time,
+.cost {
   color: #333;
 }
+
