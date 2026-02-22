@@ -21,7 +21,14 @@
     "parcel": "^2.16.0"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.2.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  }
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.2.0"
+  },
+  "browserslist": [
+  "> 0.5%",
+  "last 2 versions",
+  "not dead"
+]
 }
