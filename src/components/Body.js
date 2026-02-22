@@ -24,6 +24,7 @@ const Body = () => {
       </section>
 
       <div className="restaurants-container">
+        <h1 className="text-blue-600">Tejas</h1>
         {topRestroChainList.map((restaurentCardItem, id) => {
           return (
             <RestaurentCard restaurentCardItem={restaurentCardItem} key={id} />
