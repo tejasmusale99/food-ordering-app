@@ -62,8 +62,8 @@ const Body = () => {
       </section>
 
       <div className="restaurants-container">
-        {filtredRestro.map((restaurentCardItem, id) => {
-          return <RestaurentCard reslist={restaurentCardItem} key={id} />;
+        {filtredRestro.map((restaurentCardItem) => {
+          return <RestaurentCard reslist={restaurentCardItem} key={restaurentCardItem.info.id} />;
         })}
       </div>
     </div>

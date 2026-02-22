@@ -36,7 +36,7 @@ const TopChainCarousel = () => {
         <div className="top-chain-restaurants-container">
           {topRestroNashik.map((restroChainItem, id) => {
             return (
-              <TopRestroChain restroChainItem={restroChainItem} key={id} />
+              <TopRestroChain restroChainItem={restroChainItem} key={restroChainItem.info.id} />
             );
           })}
         </div>
