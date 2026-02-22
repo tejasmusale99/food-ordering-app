@@ -1,8 +1,22 @@
-import topRestroChainList from "../utils/topRestroChainList";
+import { useEffect, useState } from "react";
+// import topRestroChainList from "../utils/topRestroChainList";
 import RestaurentCard from "./RestaurentCard";
 import TopChainCarousel from "./TopChainCarousel";
 
 const Body = () => {
+const [restrolistCards, setRestroListCards] = useState([])
+
+useEffect(()=>{
+  fetchResCard()
+},[])
+
+const fetchResCard = async () =>{
+const fetchRes = await fetch("https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&page_type=DESKTOP_WEB_LISTING")
+const jsonData = await fetchRes.json()
+console.log(jsonData)
+setRestroListCards(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+}
+
   return (
     <div className="body-container">
       <div className="search-bar">
@@ -24,7 +38,7 @@ const Body = () => {
       </section>
 
       <div className="restaurants-container">
-        {topRestroChainList.map((restaurentCardItem, id) => {
+        {restrolistCards.map((restaurentCardItem, id) => {
           return (
             <RestaurentCard restaurentCardItem={restaurentCardItem} key={id} />
           );

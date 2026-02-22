@@ -1,5 +1,5 @@
 const RestaurentCard = (props) => {
-console.log(props.restaurentCardItem.info);
+// console.log(props.restaurentCardItem.info);
 
   const {
     name,
