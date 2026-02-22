@@ -5,6 +5,8 @@ import TopChainCarousel from "./TopChainCarousel";
 
 const Body = () => {
   const [restrolistCards, setRestroListCards] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [filtredRestro, setFiltredRestro] = useState([])
 
   useEffect(() => {
     fetchResCard();
@@ -21,15 +23,21 @@ const Body = () => {
       (item) => item?.card?.card?.gridElements?.infoWithStyle?.restaurants,
     );
 
-    // console.log(restroCards);
-
     const restaurants =
       restroCards?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
-    console.log(restaurants);
-
     setRestroListCards(restaurants);
+    setFiltredRestro(restaurants)
   };
+
+  const searchRestro = () =>{
+    const searchRestroResult = restrolistCards.filter((item)=>{
+      return(
+        item.info.name.toLowerCase().includes(searchText.toLowerCase())
+      )
+    })
+    setFiltredRestro(searchRestroResult)
+  }
 
   return (
     <div className="body-container">
@@ -37,8 +45,10 @@ const Body = () => {
         <input
           type="text"
           placeholder="Search for restaurants or cuisines..."
+          onChange={(e)=>setSearchText(e.target.value)}
+          value={searchText}
         />
-        <button>Search</button>
+        <button onClick={searchRestro}>Search</button>
       </div>
 
       <TopChainCarousel />
@@ -52,7 +62,7 @@ const Body = () => {
       </section>
 
       <div className="restaurants-container">
-        {restrolistCards.map((restaurentCardItem, id) => {
+        {filtredRestro.map((restaurentCardItem, id) => {
           return <RestaurentCard reslist={restaurentCardItem} key={id} />;
         })}
       </div>
