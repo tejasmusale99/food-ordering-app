@@ -7,7 +7,6 @@ console.log(props.restaurentCardItem.info);
     costForTwo,
     avgRating,
     sla,
-    slaString,
     cloudinaryImageId,
     aggregatedDiscountInfoV3,
   } = props?.restaurentCardItem?.info;
