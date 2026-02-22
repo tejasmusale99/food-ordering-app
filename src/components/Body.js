@@ -4,18 +4,32 @@ import RestaurentCard from "./RestaurentCard";
 import TopChainCarousel from "./TopChainCarousel";
 
 const Body = () => {
-const [restrolistCards, setRestroListCards] = useState([])
+  const [restrolistCards, setRestroListCards] = useState([]);
 
-useEffect(()=>{
-  fetchResCard()
-},[])
+  useEffect(() => {
+    fetchResCard();
+  }, []);
 
-const fetchResCard = async () =>{
-const fetchRes = await fetch("https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&page_type=DESKTOP_WEB_LISTING")
-const jsonData = await fetchRes.json()
-console.log(jsonData)
-setRestroListCards(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-}
+  const fetchResCard = async () => {
+    const fetchRes = await fetch(
+      "https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&page_type=DESKTOP_WEB_LISTING",
+    );
+    const jsonData = await fetchRes.json();
+    console.log(jsonData);
+
+    const restroCards = jsonData?.data?.cards.find(
+      (item) => item?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
+
+    // console.log(restroCards);
+
+    const restaurants =
+      restroCards?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+
+    console.log(restaurants);
+
+    setRestroListCards(restaurants);
+  };
 
   return (
     <div className="body-container">
@@ -28,7 +42,7 @@ setRestroListCards(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithS
       </div>
 
       <TopChainCarousel />
-      
+
       <div className="divider"></div>
 
       <section className="top-chain-section">
@@ -39,9 +53,7 @@ setRestroListCards(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithS
 
       <div className="restaurants-container">
         {restrolistCards.map((restaurentCardItem, id) => {
-          return (
-            <RestaurentCard restaurentCardItem={restaurentCardItem} key={id} />
-          );
+          return <RestaurentCard reslist={restaurentCardItem} key={id} />;
         })}
       </div>
     </div>
