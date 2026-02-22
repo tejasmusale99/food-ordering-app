@@ -30,7 +30,8 @@ const Body = () => {
     setFiltredRestro(restaurants)
   };
 
-  const searchRestro = () =>{
+  const searchRestro = (e) =>{
+      e.preventDefault()
     const searchRestroResult = restrolistCards.filter((item)=>{
       return(
         item.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -42,13 +43,15 @@ const Body = () => {
   return (
     <div className="body-container">
       <div className="search-bar">
+        <form onSubmit={searchRestro}>
         <input
           type="text"
           placeholder="Search for restaurants or cuisines..."
           onChange={(e)=>setSearchText(e.target.value)}
           value={searchText}
         />
-        <button onClick={searchRestro}>Search</button>
+        <button type="submit">Search</button>
+        </form>
       </div>
 
       <TopChainCarousel />
