@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TopRestroChain } from "./TopRestroChain";
+import CarouselShimmer from "../components/CarouselShimmer";
 
 const TopChainCarousel = () => {
   const [topRestroNashik, setTopRestroNashik] = useState([]);
@@ -26,6 +27,10 @@ const TopChainCarousel = () => {
 
     setTopRestroNashik(topRestaurants);
   };
+
+    if (topRestroNashik.length === 0) {
+    return <CarouselShimmer />
+  }
 
   return (
     <section className="top-chain-section">
