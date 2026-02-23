@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 // import topRestroChainList from "../utils/topRestroChainList";
 import RestaurentCard from "./RestaurentCard";
 import TopChainCarousel from "./TopChainCarousel";
+import Shimmer from "../components/Shimmer";
 
 const Body = () => {
   const [restrolistCards, setRestroListCards] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [filtredRestro, setFiltredRestro] = useState([])
+  const [filtredRestro, setFiltredRestro] = useState([]);
 
   useEffect(() => {
     fetchResCard();
@@ -27,30 +28,32 @@ const Body = () => {
       restroCards?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
     setRestroListCards(restaurants);
-    setFiltredRestro(restaurants)
+    setFiltredRestro(restaurants);
   };
 
-  const searchRestro = (e) =>{
-      e.preventDefault()
-    const searchRestroResult = restrolistCards.filter((item)=>{
-      return(
-        item.info.name.toLowerCase().includes(searchText.toLowerCase())
-      )
-    })
-    setFiltredRestro(searchRestroResult)
+  const searchRestro = (e) => {
+    e.preventDefault();
+    const searchRestroResult = restrolistCards.filter((item) => {
+      return item.info.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    setFiltredRestro(searchRestroResult);
+  };
+
+  if (restrolistCards.length === 0) {
+    return <Shimmer />
   }
 
   return (
     <div className="body-container">
       <div className="search-bar">
         <form onSubmit={searchRestro}>
-        <input
-          type="text"
-          placeholder="Search for restaurants or cuisines..."
-          onChange={(e)=>setSearchText(e.target.value)}
-          value={searchText}
-        />
-        <button type="submit">Search</button>
+          <input
+            type="text"
+            placeholder="Search for restaurants or cuisines..."
+            onChange={(e) => setSearchText(e.target.value)}
+            value={searchText}
+          />
+          <button type="submit">Search</button>
         </form>
       </div>
 
@@ -66,7 +69,12 @@ const Body = () => {
 
       <div className="restaurants-container">
         {filtredRestro.map((restaurentCardItem) => {
-          return <RestaurentCard reslist={restaurentCardItem} key={restaurentCardItem.info.id} />;
+          return (
+            <RestaurentCard
+              reslist={restaurentCardItem}
+              key={restaurentCardItem.info.id}
+            />
+          );
         })}
       </div>
     </div>
