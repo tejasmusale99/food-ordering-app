@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import topRestroChainList from "../utils/topRestroChainList";
 import { TopRestroChain } from "./TopRestroChain";
 
 const TopChainCarousel = () => {
@@ -34,7 +33,7 @@ const TopChainCarousel = () => {
 
       <div className="top-chain-scroll-container">
         <div className="top-chain-restaurants-container">
-          {topRestroNashik.map((restroChainItem, id) => {
+          {topRestroNashik.map((restroChainItem) => {
             return (
               <TopRestroChain restroChainItem={restroChainItem} key={restroChainItem.info.id} />
             );
