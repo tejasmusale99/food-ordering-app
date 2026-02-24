@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import RestaurentCard from "./RestaurentCard";
 import TopChainCarousel from "./TopChainCarousel";
 import Shimmer from "../components/Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restrolistCards, setRestroListCards] = useState([]);
@@ -40,7 +41,7 @@ const Body = () => {
   };
 
   if (restrolistCards.length === 0) {
-    return <Shimmer />
+    return <Shimmer />;
   }
 
   return (
@@ -70,10 +71,12 @@ const Body = () => {
       <div className="restaurants-container">
         {filtredRestro.map((restaurentCardItem) => {
           return (
-            <RestaurentCard
-              reslist={restaurentCardItem}
+            <Link
               key={restaurentCardItem.info.id}
-            />
+              to={`/restaurants/${restaurentCardItem.info.id}`}
+            >
+              <RestaurentCard reslist={restaurentCardItem} />
+            </Link>
           );
         })}
       </div>

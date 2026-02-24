@@ -1,7 +1,7 @@
 // import logo from "url:./SwaadpointLogo.png";
 import { Link } from "react-router-dom";
 import logo from "url:../utils/images/SwaadpointLogo.png"
-
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (

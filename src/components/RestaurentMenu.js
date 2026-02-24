@@ -1,11 +1,37 @@
+import { useEffect, useState } from "react";
 import RestaurentMenuCategory from "./RestaurentMenuCategory";
+import { useParams } from "react-router-dom";
 
 const RestaurentMenu = () => {
+  const [resMenu, setResMenu] = useState([]);
+
+  const { resId } = useParams();
+
+  useEffect(() => {
+    fetchResMenu();
+  }, []);
+
+  const fetchResMenu = async () => {
+    const menuFetch = await fetch(
+      "https://proxy.corsfix.com/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.0051498&lng=73.7676967&restaurantId="+resId
+    );
+
+    const menuJson = await menuFetch.json();
+
+    console.log(menuJson);
+
+    setResMenu(menuJson);
+  };
+
+  const info = resMenu?.data?.cards[2]?.card?.card?.info
+
+  console.log(info?.name)
+
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4 md:px-16">
       {/* Restaurant Header */}
       <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">Pizza Hut</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">{info?.name}</h1>
 
         <div className="bg-gray-50 rounded-2xl p-5 shadow-inner">
           <div className="flex items-center gap-3 text-sm md:text-base">
@@ -29,6 +55,13 @@ const RestaurentMenu = () => {
       </div>
 
       {/* Category Component */}
+      {/* {
+        resMenu.map((menuItem)=>{
+          return(
+            <RestaurentMenuCategory />
+          )
+        })
+      } */}
       <RestaurentMenuCategory />
     </div>
   );

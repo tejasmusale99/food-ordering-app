@@ -24,28 +24,28 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement:<Error />,
-    children: [
-      {
-        path:"/",
-        element:<Body />
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/restaurants/:resId",
-        element: <RestaurentMenu />
-      },
-    ],
+children: [
+  {
+    path: "/",   // or better use index: true (see below)
+    element: <Body />
+  },
+  {
+    path: "about",
+    element: <About />,
+  },
+  {
+    path: "contact",
+    element: <Contact />,
+  },
+  {
+    path: "cart",
+    element: <Cart />,
+  },
+  {
+    path: "restaurants/:resId",
+    element: <RestaurentMenu />
+  },
+],
   },
 ]);
 
