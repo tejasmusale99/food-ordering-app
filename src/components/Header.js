@@ -12,10 +12,8 @@ const Header = () => {
       <nav className="nav">
         <Link to={"/"}>Home</Link>
         <Link to={"/about"}>About</Link>
-        <a href="#">Contact</a>
-        <a href="#" className="cart">
-          🛒 Cart
-        </a>
+        <Link to={"/contact"}>Contact</Link>
+        <Link to={"/cart"} className="cart">🛒 Cart</Link>
       </nav>
     </header>
   );
