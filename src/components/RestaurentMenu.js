@@ -36,7 +36,7 @@ const RestaurentMenu = () => {
       }
     );
 
-  console.log(RestaurantItemCategories)
+  // console.log(RestaurantItemCategories)
 
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4 md:px-16">
