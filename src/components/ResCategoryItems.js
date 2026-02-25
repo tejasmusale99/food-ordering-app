@@ -5,7 +5,7 @@ const ResCategoryItems = ({ resCategoryItems }) => {
   return (
     <div className="divide-y">
       {menuItems.map((item) => {
-        const { name, description, defaultPrice, ratings, imageId } = item?.card?.info;
+        const { name, description, defaultPrice, ratings, imageId, price } = item?.card?.info;
         return (
           <div
             key={item?.card?.info?.id}
@@ -16,9 +16,8 @@ const ResCategoryItems = ({ resCategoryItems }) => {
               <h3 className="text-lg font-semibold">{name}</h3>
 
               <p className="text-gray-900 font-semibold mt-1">
-                ₹{defaultPrice / 100}
+                ₹{(price ?? defaultPrice) / 100}
               </p>
-
               <p className="text-green-600 text-sm mt-1">
                 ★ {ratings?.aggregatedRating?.rating}{" "}
                 {"(" + ratings?.aggregatedRating?.ratingCountV2 + ")"}{" "}
