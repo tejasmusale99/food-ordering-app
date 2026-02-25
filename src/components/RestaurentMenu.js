@@ -26,7 +26,15 @@ const RestaurentMenu = () => {
 
   const info = resMenu?.data?.cards[2]?.card?.card?.info;
 
- 
+    const RestaurantItemCategories =
+    resMenu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+      (category) => {
+        return (
+          category.card.card["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        );
+      }
+    );
 
   console.log(RestaurantItemCategories)
 
@@ -61,7 +69,14 @@ const RestaurentMenu = () => {
         </div>
       </div>
 
-      <RestaurentMenuCategory />
+      {
+        RestaurantItemCategories?.map((menuCategory)=>{
+          return(
+            <RestaurentMenuCategory key={menuCategory?.card?.card?.categoryId} menuCategory={menuCategory}/>
+          )
+        })
+      }
+      
     </div>
   );
 };
