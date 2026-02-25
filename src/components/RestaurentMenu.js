@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurentMenuCategory from "./RestaurentMenuCategory";
 import { useParams } from "react-router-dom";
+import MenuShimmer from "./MenuShimmer";
 
 const RestaurentMenu = () => {
   const [resMenu, setResMenu] = useState([]);
@@ -37,6 +38,8 @@ const RestaurentMenu = () => {
     );
 
   // console.log(RestaurantItemCategories)
+
+  if (resMenu.length === 0) return <MenuShimmer />;
 
   return (
     <div className="bg-gray-100 min-h-screen py-8 px-4 md:px-16">
