@@ -20,7 +20,7 @@ const RestaurentMenu = () => {
 
     const menuJson = await menuFetch.json();
 
-    console.log(menuJson);
+    // console.log(menuJson);
 
     setResMenu(menuJson);
   };
