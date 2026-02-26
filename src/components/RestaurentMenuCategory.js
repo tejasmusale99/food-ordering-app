@@ -38,7 +38,7 @@ const RestaurentMenuCategory = ({ menuCategory }) => {
 
         <div className="border-t"></div>
 
-       {isOpen? <ResCategoryItems resCategoryItems = {menuCategory}/>:""} 
+       {isOpen && <ResCategoryItems resCategoryItems = {menuCategory}/>} 
       </div>
     </div>
   );
