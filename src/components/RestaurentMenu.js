@@ -2,30 +2,14 @@ import { useEffect, useState } from "react";
 import RestaurentMenuCategory from "./RestaurentMenuCategory";
 import { useParams } from "react-router-dom";
 import MenuShimmer from "./MenuShimmer";
+import useRestaurentsMenu from "../hooks/useRestaurentsMenu";
 
 const RestaurentMenu = () => {
-  const [resMenu, setResMenu] = useState([]);
-
   const { resId } = useParams();
 
   const [isIndexOpen, setIsIndexOpen] = useState(null);
 
-  useEffect(() => {
-    fetchResMenu();
-  }, []);
-
-  const fetchResMenu = async () => {
-    const menuFetch = await fetch(
-      "https://proxy.corsfix.com/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.0051498&lng=73.7676967&restaurantId=" +
-        resId,
-    );
-
-    const menuJson = await menuFetch.json();
-
-    // console.log(menuJson);
-
-    setResMenu(menuJson);
-  };
+  const resMenu = useRestaurentsMenu(resId);
 
   const info = resMenu?.data?.cards[2]?.card?.card?.info;
 
