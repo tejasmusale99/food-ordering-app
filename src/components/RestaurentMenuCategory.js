@@ -3,7 +3,7 @@ import ResCategoryItems from "./ResCategoryItems";
 
 const RestaurentMenuCategory = ({ menuCategory, showCategoryItems, setIsIndexOpen}) => {
   // console.log(menuCategory)
-  console.log(setIsIndexOpen)
+  // console.log(setIsIndexOpen)
 
   const HandleAccordian = () => {
     setIsIndexOpen()
