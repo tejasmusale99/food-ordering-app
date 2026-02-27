@@ -8,7 +8,7 @@ const RestaurentMenu = () => {
 
   const { resId } = useParams();
 
-  const [isIndexOpen, setIsIndexOpen] = useState(0)
+  const [isIndexOpen, setIsIndexOpen] = useState(null);
 
   useEffect(() => {
     fetchResMenu();
@@ -77,13 +77,16 @@ const RestaurentMenu = () => {
         </div>
       </div>
 
-      {RestaurantItemCategories?.map((menuCategory,index) => {
+      {RestaurantItemCategories?.map((menuCategory, index) => {
         return (
           <RestaurentMenuCategory
             key={menuCategory?.card?.card?.categoryId}
             menuCategory={menuCategory}
-            showCategoryItems={index === isIndexOpen? true : false}
-            setIsIndexOpen={()=>setIsIndexOpen(index)}
+            showCategoryItems={index === isIndexOpen ? true : false}
+            // setIsIndexOpen={()=>setIsIndexOpen(index)}
+            setIsIndexOpen={() =>
+              setIsIndexOpen((prev) => (prev === index ? null : index))
+            }
           />
         );
       })}
