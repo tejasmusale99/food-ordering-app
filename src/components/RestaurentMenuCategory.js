@@ -1,13 +1,12 @@
 import { useState } from "react";
 import ResCategoryItems from "./ResCategoryItems";
 
-const RestaurentMenuCategory = ({ menuCategory }) => {
+const RestaurentMenuCategory = ({ menuCategory, showCategoryItems, setIsIndexOpen}) => {
   // console.log(menuCategory)
-
-  const [isOpen, setIsopen] = useState(true)
+  console.log(setIsIndexOpen)
 
   const HandleAccordian = () => {
-    setIsopen(prev => !prev)
+    setIsIndexOpen()
   }
  
   return (
@@ -38,7 +37,7 @@ const RestaurentMenuCategory = ({ menuCategory }) => {
 
         <div className="border-t"></div>
 
-       {isOpen && <ResCategoryItems resCategoryItems = {menuCategory}/>} 
+       {showCategoryItems && <ResCategoryItems resCategoryItems = {menuCategory}/>} 
       </div>
     </div>
   );

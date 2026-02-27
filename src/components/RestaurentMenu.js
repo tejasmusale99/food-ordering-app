@@ -8,6 +8,8 @@ const RestaurentMenu = () => {
 
   const { resId } = useParams();
 
+  const [isIndexOpen, setIsIndexOpen] = useState(0)
+
   useEffect(() => {
     fetchResMenu();
   }, []);
@@ -27,14 +29,14 @@ const RestaurentMenu = () => {
 
   const info = resMenu?.data?.cards[2]?.card?.card?.info;
 
-    const RestaurantItemCategories =
+  const RestaurantItemCategories =
     resMenu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
       (category) => {
         return (
           category.card.card["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
         );
-      }
+      },
     );
 
   // console.log(RestaurantItemCategories)
@@ -61,7 +63,10 @@ const RestaurentMenu = () => {
             </span>
           </div>
 
-          <p className="text-orange-600 font-medium mt-3"> {info?.cuisines + "," }</p>
+          <p className="text-orange-600 font-medium mt-3">
+            {" "}
+            {info?.cuisines + ","}
+          </p>
 
           <div className="mt-3 text-gray-600 text-sm space-y-1">
             <p>
@@ -72,14 +77,16 @@ const RestaurentMenu = () => {
         </div>
       </div>
 
-      {
-        RestaurantItemCategories?.map((menuCategory)=>{
-          return(
-            <RestaurentMenuCategory key={menuCategory?.card?.card?.categoryId} menuCategory={menuCategory}/>
-          )
-        })
-      }
-      
+      {RestaurantItemCategories?.map((menuCategory,index) => {
+        return (
+          <RestaurentMenuCategory
+            key={menuCategory?.card?.card?.categoryId}
+            menuCategory={menuCategory}
+            showCategoryItems={index === isIndexOpen? true : false}
+            setIsIndexOpen={()=>setIsIndexOpen(index)}
+          />
+        );
+      })}
     </div>
   );
 };
