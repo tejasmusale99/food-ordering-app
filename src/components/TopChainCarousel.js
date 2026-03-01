@@ -1,6 +1,7 @@
 import { TopRestroChain } from "./TopRestroChain";
 import CarouselShimmer from "../components/CarouselShimmer";
 import useTopRestroChain from "../hooks/useTopRestroChain";
+import { Link } from "react-router-dom";
 
 const TopChainCarousel = () => {
   const topRestroNashik = useTopRestroChain();
@@ -16,10 +17,12 @@ const TopChainCarousel = () => {
         <div className="top-chain-restaurants-container">
           {topRestroNashik.map((restroChainItem) => {
             return (
+              <Link key={restroChainItem.info.id} to={`/restaurants/${restroChainItem.info.id}`}>
               <TopRestroChain
                 restroChainItem={restroChainItem}
                 key={restroChainItem.info.id}
               />
+              </Link>
             );
           })}
         </div>
