@@ -5,6 +5,7 @@ import TopChainCarousel from "./TopChainCarousel";
 import Shimmer from "../components/Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurentCards from "../hooks/useRestaurentCards";
+import WhatsOnYourMind from "./WhatsOnYourMind";
 
 const Body = () => {
   
@@ -33,6 +34,8 @@ const Body = () => {
           <button type="submit">Search</button>
         </form>
       </div>
+
+      <WhatsOnYourMind />
 
       <TopChainCarousel />
 
