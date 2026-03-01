@@ -225,3 +225,22 @@
   color: #333;
 }
 
+/* What Your Mind ScrollBar  */
+
+::-webkit-scrollbar {
+  height: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FC8019; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e46f12; 
+}
