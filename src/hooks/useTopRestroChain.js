@@ -12,7 +12,7 @@ const useTopRestroChain = () => {
 
     const json = await nashikTopRestro.json();
 
-    console.log(json);
+    // console.log(json);
 
     const nashikRestroCards = json?.data?.cards.find(
       (item) => item?.card?.card?.gridElements?.infoWithStyle?.restaurants,
