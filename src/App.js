@@ -10,12 +10,16 @@ import Cart from "./components/Cart";
 import Error from "./components/Error";
 import RestaurentMenu from "./components/RestaurentMenu";
 import WhatOnYourMindRestro from "./components/WhatOnYourMindRestro"
+import UserContext from "./utils/context/userContext";
+
 
 const App = () => {
   return (
     <div className="appLayout">
+      <UserContext.Provider value={{ loggedInUser: "Tejas Musale" }}>
       <Header />
       <Outlet />
+      </UserContext.Provider>
     </div>
   );
 };
