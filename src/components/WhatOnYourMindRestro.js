@@ -12,7 +12,7 @@ const WhatOnYourMindRestro = () => {
 
   const fetchWhatMenuRestro = async () => {
     const response = await fetch(
-      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&collection=${menuId}&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
+      `https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&collection=${menuId}&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
     );
 
     const json = await response.json();
