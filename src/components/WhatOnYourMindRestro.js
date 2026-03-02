@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const WhatOnYourMindRestro = () => {
   const { menuId } = useParams();
@@ -64,10 +64,9 @@ console.log(cards);
 
         {mindRestro.map((res) => {
           const info = res?.card?.card?.info;
-
           return (
+            <Link key={info?.id} to={`/restaurants/${info?.id}`}>
             <div
-              key={info?.id}
               className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition duration-300 cursor-pointer"
             >
               
@@ -111,6 +110,7 @@ console.log(cards);
                 </p>
               </div>
             </div>
+            </Link>
           );
         })}
       </div>
