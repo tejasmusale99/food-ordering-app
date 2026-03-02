@@ -12,12 +12,12 @@ const useRestaurentCards = () => {
 
   const fetchResCard = async () => {
     const fetchRes = await fetch(
-      "https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9728896&lng=73.8229516&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
     );
     const jsonData = await fetchRes.json();
-    console.log(jsonData);
+    // console.log(jsonData);
 
-    const whatsOnYourMindData = jsonData?.data.cards[0]
+    const whatsOnYourMindData = jsonData?.data?.cards[0]
 
     setWhatsOnMind(whatsOnYourMindData);
 
