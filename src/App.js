@@ -1,4 +1,4 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -13,7 +13,7 @@ import WhatOnYourMindRestro from "./components/WhatOnYourMindRestro";
 import UserContext from "./utils/context/userContext";
 import appStore from "./utils/store/appStore";
 import { Provider } from "react-redux";
-// const Cart =
+const Cart =lazy(() => import("./components/Cart"))
 
 const App = () => {
   return (
@@ -48,7 +48,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback="Loading...">
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "restaurants/:resId",
