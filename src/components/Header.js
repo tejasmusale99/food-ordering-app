@@ -10,7 +10,7 @@ const Header = () => {
     const { loggedInUser } = useContext(UserContext);
 
     const CartItem = useSelector((store)=>store.cart.items)
-    console.log(CartItem.length);
+    // console.log(CartItem.length);
     
   return (
     <header className="header">
