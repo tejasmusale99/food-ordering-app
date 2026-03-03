@@ -11,7 +11,7 @@ import Error from "./components/Error";
 import RestaurentMenu from "./components/RestaurentMenu";
 import WhatOnYourMindRestro from "./components/WhatOnYourMindRestro"
 import UserContext from "./utils/context/userContext";
-
+// const Cart = 
 
 const App = () => {
   return (

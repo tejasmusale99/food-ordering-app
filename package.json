@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/tejasmusale99/food-ordering-app#readme",
   "devDependencies": {
-    "parcel": "^2.16.0"
+    "parcel": "^2.16.0",
+    "url": "^0.11.4"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.0",
