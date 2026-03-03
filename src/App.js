@@ -9,16 +9,20 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
 import RestaurentMenu from "./components/RestaurentMenu";
-import WhatOnYourMindRestro from "./components/WhatOnYourMindRestro"
+import WhatOnYourMindRestro from "./components/WhatOnYourMindRestro";
 import UserContext from "./utils/context/userContext";
-// const Cart = 
+import appStore from "./utils/store/appStore";
+import { Provider } from "react-redux";
+// const Cart =
 
 const App = () => {
   return (
     <div className="appLayout">
       <UserContext.Provider value={{ loggedInUser: "Tejas Musale" }}>
-      <Header />
-      <Outlet />
+        <Provider store={appStore}>
+          <Header />
+          <Outlet />
+        </Provider>
       </UserContext.Provider>
     </div>
   );
@@ -28,33 +32,33 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement:<Error />,
-children: [
-  {
-    path: "/",   // or better use index: true (see below)
-    element: <Body />
-  },
-  {
-    path: "about",
-    element: <About />,
-  },
-  {
-    path: "contact",
-    element: <Contact />,
-  },
-  {
-    path: "cart",
-    element: <Cart />,
-  },
-  {
-    path: "restaurants/:resId",
-    element: <RestaurentMenu />
-  },
-  {
-    path: "collections/:menuId",
-    element: <WhatOnYourMindRestro />
-  },
-],
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/", // or better use index: true (see below)
+        element: <Body />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "restaurants/:resId",
+        element: <RestaurentMenu />,
+      },
+      {
+        path: "collections/:menuId",
+        element: <WhatOnYourMindRestro />,
+      },
+    ],
   },
 ]);
 
