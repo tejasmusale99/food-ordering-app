@@ -1,6 +1,15 @@
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../utils/features/cartSlice";
+
 const ResCategoryItems = ({ resCategoryItems }) => {
   const menuItems = resCategoryItems?.card?.card?.itemCards;
-  console.log(menuItems);
+  // console.log(menuItems);
+
+  const dispatch = useDispatch();
+  const handleAddToCart = (item)=>{
+    console.log("Adding to cart: ", item);
+    dispatch(addItemToCart(item));
+  }
 
   return (
     <div className="divide-y">
@@ -38,7 +47,7 @@ const ResCategoryItems = ({ resCategoryItems }) => {
                 className="w-full h-36 object-cover rounded-xl"
               />
 
-              <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-md font-semibold text-green-600 cursor-pointer">
+              <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-md font-semibold text-green-600 cursor-pointer" onClick={()=>handleAddToCart(item?.card?.info)}>
                 ADD
               </button>
 
