@@ -11,7 +11,7 @@ const TopChainCarousel = () => {
 
   return (
     <section className="top-chain-section">
-      <h2 className="section-title">Top restaurant chains in Nashik</h2>
+      <h2 className="section-title section-title text-sm md:text-3xl font-bold pb-5">Top restaurant chains in Nashik</h2>
 
       <div className="top-chain-scroll-container">
         <div className="top-chain-restaurants-container">

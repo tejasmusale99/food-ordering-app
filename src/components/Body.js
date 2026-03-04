@@ -42,7 +42,7 @@ const Body = () => {
       <div className="divider"></div>
 
       <section className="top-chain-section">
-        <h2 className="section-title">
+        <h2 className="section-title text-sm md:text-3xl font-bold pb-5">
           Restaurants with online food delivery in Nashik
         </h2>
       </section>
