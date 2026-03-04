@@ -59,6 +59,58 @@ const About = () => {
           </div>
         </div>
       </div>
+      {/* Tech Stack Section */}
+      <div className="max-w-5xl mx-auto mt-24">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Tech Stack Used
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <h3 className="text-xl font-semibold mb-2">React</h3>
+            <p className="text-gray-600">
+              Component-based UI development with hooks and modern React
+              patterns.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <h3 className="text-xl font-semibold mb-2">Redux Toolkit</h3>
+            <p className="text-gray-600">
+              Centralized state management for cart and application-level data.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <h3 className="text-xl font-semibold mb-2">React Router</h3>
+            <p className="text-gray-600">
+              Client-side routing for seamless navigation between pages.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <h3 className="text-xl font-semibold mb-2">Tailwind CSS</h3>
+            <p className="text-gray-600">
+              Utility-first CSS framework for responsive and consistent UI
+              design.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <h3 className="text-xl font-semibold mb-2">JavaScript (ES6+)</h3>
+            <p className="text-gray-600">
+              Modern JavaScript features for clean and readable code.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <h3 className="text-xl font-semibold mb-2">API Integration</h3>
+            <p className="text-gray-600">
+              Dynamic data rendering using external APIs with async handling.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
