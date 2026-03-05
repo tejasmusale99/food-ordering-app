@@ -59,7 +59,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* Tech Stack Section */}
       <div className="max-w-5xl mx-auto mt-24">
         <h2 className="text-3xl font-bold text-center mb-12">
           Tech Stack Used
