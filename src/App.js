@@ -6,7 +6,6 @@ import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Cart from "./components/Cart";
 import Error from "./components/Error";
 import RestaurentMenu from "./components/RestaurentMenu";
 import WhatOnYourMindRestro from "./components/WhatOnYourMindRestro";
